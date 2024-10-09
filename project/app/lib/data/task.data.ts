@@ -1,11 +1,16 @@
 import connectToDatabase from "../mongodb";
 import Task from "../taskModel";
 
-const allTasks = async () => {
+export const getAllTasks = async () => {
     try {
         await connectToDatabase()
-        const 
+        const allTasks = await Task.find({})
+
+        return allTasks;
     } catch (error) {
-        
+        console.log(error)
     }
 }
+
+
+
