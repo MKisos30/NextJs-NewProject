@@ -12,5 +12,21 @@ export const getAllTasks = async () => {
     }
 }
 
+export type State = { //continue the state + validation
+    errors?: {
+
+    }
+    message?: string | null;
+}
+
+export const newTask = async (prevState: State, formData: FormData) => {
+    try {
+        
+
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 
 

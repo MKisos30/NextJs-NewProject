@@ -4,6 +4,8 @@ import React from 'react'
 //create action to add new task
 
 const Page = () => {
+  
+
   return (
     <div>
         <h1>ADD NEW TASK</h1>
