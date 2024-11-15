@@ -34,11 +34,11 @@ const taskValidation = z.object({
   description: z
     .string({ invalid_type_error: 'חייב לכלול אותיות' })
     .min(5, { message: 'מינימום 5 אותיות' }),
-  ddLine: z.date().min(10, { message: 'מינימום 10 תווים' }),
+  ddLine: z.date(),
   adress: z.string({ invalid_type_error: 'חייב להכיל אותיות בלבד' }),
 });
 
-export const newTask = async (prevState: State, formData: FormData) => {
+export const newTask = async (prevState: any, formData: FormData) => {
   try {
     const taskValid = taskValidation.safeParse({
       title: formData.get('title'),
@@ -59,8 +59,8 @@ export const newTask = async (prevState: State, formData: FormData) => {
     await connectToDatabase();
     await Task.create({title, description, ddLine, adress})
 
-    revalidatePath('/home')    // update cache of the page that you want to update 
-    redirect('home')   //redirect to the page that you want
+    revalidatePath('/')    // update cache of the page that you want to update 
+    redirect('/')   //redirect to the page that you want
     // const newTask = await new Task({ title, description, ddLine, adress })
     // await newTask.save()
 
