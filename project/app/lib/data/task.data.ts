@@ -56,8 +56,8 @@ export const newTask = async (prevState: any, formData: FormData) => {
 
     const { title, description, ddLine, adress } = taskValid.data;
 
-    await connectToDatabase();
-    await Task.create({title, description, ddLine, adress})
+    // await connectToDatabase();
+    // await Task.create({title, description, ddLine, adress})
 
     revalidatePath('/')    // update cache of the page that you want to update 
     redirect('/')   //redirect to the page that you want

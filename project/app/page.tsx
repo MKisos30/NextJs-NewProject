@@ -11,7 +11,7 @@ interface Itask {
 
 export default async function Home() {
   const data:Array<Itask> = await getAllTasks()
-  console.log(data)
+  // console.log(data)
 
   return (
     <div>    
