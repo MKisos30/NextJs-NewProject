@@ -38,6 +38,7 @@ const taskValidation = z.object({
   adress: z.string({ invalid_type_error: 'חייב להכיל אותיות בלבד' }),
 });
 
+
 export const newTask = async (prevState: any, formData: FormData) => {
   try {
     const taskValid = taskValidation.safeParse({
@@ -54,7 +55,7 @@ export const newTask = async (prevState: any, formData: FormData) => {
       };
     }
 
-    const { title, description, ddLine, adress } = taskValid.data;
+    // const { title, description, ddLine, adress } = taskValid.data;
 
     // await connectToDatabase();
     // await Task.create({title, description, ddLine, adress})
