@@ -1,4 +1,4 @@
-import { getAllTasks } from "./lib/data/task.data";
+// import { getAllTasks } from "./lib/data/task.data";
 
 interface Itask {
   title: string,
@@ -10,7 +10,7 @@ interface Itask {
 }
 
 export default async function Home() {
-  const data:Array<Itask> = await getAllTasks()
+  // const data:Array<Itask> = await getAllTasks()
   // console.log(data)
 
   return (
