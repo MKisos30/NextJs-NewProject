@@ -15,6 +15,8 @@ export default async function Home() {
   const data:Array<Itask> = await getAllTasks()
   console.log(data)
 
+  //add link to move to new task page
+  
   return (
     <div>    
       <h1>Homepage</h1>
