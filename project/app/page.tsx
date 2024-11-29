@@ -1,6 +1,7 @@
 // import { getAllTasks } from "./lib/data/task.data";
 
 import { getAllTasks } from "./lib/data/task.data";
+import Link from 'next/link'
 
 interface Itask {
   title: string,
@@ -23,6 +24,7 @@ export default async function Home() {
       {/* {data.map((task, i: number) => (
         <section>{task.title}</section>
       ))} */}
+      <Link href="/new-task">To New Task Page</Link>
     </div>
   );
 }

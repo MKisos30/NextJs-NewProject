@@ -16,6 +16,8 @@ const Page = () => {
   console.log(`state`)
   console.log(state)
 
+  const router = useRouter()
+
   return (
     <div>
       <h1>ADD NEW TASK</h1>
@@ -30,6 +32,7 @@ const Page = () => {
         <input type="text" name="adress" placeholder="ניתן לציין כתובת" />
         <button type="submit">יצירת משימה חדשה</button>
       </form>
+      <button type="button" onClick={() => router.back()}>Go Back</button>
     </div>
   );
 };
