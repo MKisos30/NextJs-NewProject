@@ -2,8 +2,6 @@ import mongoose, { Mongoose } from 'mongoose';
 
 const MONGODB_URI = process.env.MONGODB_URI;
 
-console.log(MONGODB_URI);
-
 interface MongooseConnection {
     conn: Mongoose | null;
     promise: Promise<Mongoose> | null;

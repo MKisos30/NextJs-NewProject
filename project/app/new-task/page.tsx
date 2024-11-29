@@ -3,14 +3,14 @@
 import React from 'react';
 import { newTask, State } from '../lib/data/task.data';
 // import { useFormState } from 'react-dom';
-// import { useActionState } from 'react'
+import { useActionState } from 'react'
 
 //add form with all inputs to add new task.
 //create action to add new task
 
 const Page = () => {
-  // const initialState: any = { message: null, errors: {}};
-  // const [ state, formAction ] = useActionState(newTask, initialState)
+  const initialState: any = { message: null, errors: {}};
+  const [ state, formAction ] = useActionState(newTask, initialState)
 
   return (
     <div>
