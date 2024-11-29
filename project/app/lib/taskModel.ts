@@ -47,10 +47,3 @@ const TaskSchema = new mongoose.Schema<ITodoDocument>(
 
 const Task: Model<ITodoDocument> = mongoose.models?.Task || mongoose.model('Task', TaskSchema);
 export default Task;
-
-//add data folder
-
-// const Todo: Model<ITodoDocument> =
-//   mongoose.models?.Todo || mongoose.model("Todo", todoSchema);
-
-// export default Todo;

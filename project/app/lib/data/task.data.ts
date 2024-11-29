@@ -40,6 +40,7 @@ const taskValidation = z.object({
 
 
 export const newTask = async (prevState: any, formData: FormData) => {
+  console.log(`in new task`)
   try {
     const taskValid = taskValidation.safeParse({
       title: formData.get('title'),
@@ -49,16 +50,20 @@ export const newTask = async (prevState: any, formData: FormData) => {
     });
 
     if (!taskValid.success) {
+      console.log(`not valid`)
       return {
         errors: taskValid.error.flatten().fieldErrors,
         message: 'שגיאה, המשימה לא נוצרה',
       };
     }
 
-    // const { title, description, ddLine, adress } = taskValid.data;
+    const { title, description, ddLine, adress } = taskValid.data;
+    console.log(title, description, ddLine, adress )
 
-    // await connectToDatabase();
-    // await Task.create({title, description, ddLine, adress})
+    await connectToDatabase();
+    await Task.create({title, description, ddLine, adress})
+
+    console.log(`done`)
 
     revalidatePath('/')    // update cache of the page that you want to update 
     redirect('/')   //redirect to the page that you want
