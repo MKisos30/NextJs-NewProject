@@ -1,6 +1,6 @@
 import mongoose, { Mongoose } from 'mongoose';
 
-const MONGODB_URI = process.env.MONGODB_URI;
+const MONGODB_URI = process.env.MONGODB_URI || process.env.NEXT_PUBLIC_MONGODB_URI;
 
 interface MongooseConnection {
     conn: Mongoose | null;
@@ -37,6 +37,7 @@ export const connectToDatabase = async () => {
         // Return the established connection
         return cached.conn;
     } catch (error) {
+        console.log(error)
         throw new Error('Error while trying to established db connection ');
     }
 };

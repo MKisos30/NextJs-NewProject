@@ -5,6 +5,7 @@ import React from 'react';
 // import { useFormState } from 'react-dom';
 import { useActionState } from 'react'
 import { newTask } from '../lib/data/task.data';
+// import { useRouter } from 'next/router';
 
 //add form with all inputs to add new task.
 //create action to add new task
@@ -13,10 +14,7 @@ const Page = () => {
   const initialState: any = { message: null, errors: {}};
   const [ state, formAction ] = useActionState(newTask, initialState)
 
-  console.log(`state`)
-  console.log(state)
-
-  const router = useRouter()
+  // const router = useRouter()
 
   return (
     <div>
@@ -32,7 +30,7 @@ const Page = () => {
         <input type="text" name="adress" placeholder="ניתן לציין כתובת" />
         <button type="submit">יצירת משימה חדשה</button>
       </form>
-      <button type="button" onClick={() => router.back()}>Go Back</button>
+      {/* <button type="button" onClick={() => router.back()}>Go Back</button> */}
     </div>
   );
 };
