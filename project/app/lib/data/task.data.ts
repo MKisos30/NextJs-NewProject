@@ -1,9 +1,12 @@
 "use server"
+// import { editTask } from './task.data';
 import { revalidatePath } from 'next/cache';
 import connectToDatabase from '../mongodb';
 import Task from '../taskModel';
 import { z } from 'zod';
 import { redirect } from 'next/navigation';
+import { getPossibleMiddlewareFilenames } from '@/node_modules/next/dist/build/utils';
+import { getPreviouslyCachedImageOrNull } from '@/node_modules/next/dist/server/image-optimizer';
 // import { revalidatePath } from '@/node_modules/next/cache';
 // import { redirect } from '@/node_modules/next/navigation';
 
@@ -11,6 +14,8 @@ export const getAllTasks = async () => {
   try {
     await connectToDatabase();
     const allTasks = await Task.find({});
+
+    // console.log(typeof allTasks[0]._id)
 
     return allTasks;
   } catch (error) {
@@ -103,6 +108,7 @@ export const editTask = async (prevState: any, formData: FormData) => {
       adress: formData.get('adress'),
     });
 
+     
     if (!taskValid.success) {
       console.log(`not valid`)
       return {
@@ -130,3 +136,4 @@ export const editTask = async (prevState: any, formData: FormData) => {
     console.log(error);
   }
 };
+

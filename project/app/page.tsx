@@ -1,5 +1,6 @@
 import { getAllTasks } from "./lib/data/task.data";
 import Link from 'next/link'
+import EditCheckBox from "./components/editCheckBox";
 
 export interface Itask {
   title: string,
@@ -7,14 +8,15 @@ export interface Itask {
   description: string,
   ddLine: string,
   adress: string,
-  _id: unknown,
+  _id: object,
   __v: number,
 }
 
 export default async function Home() {
   const data: Array<Itask> = await getAllTasks()
 
-  console.log(data)
+  // console.log(data)
+  // console.log(data[0]._id.toString())
   return (
     <div>
       <h1>Homepage</h1>
@@ -26,7 +28,7 @@ export default async function Home() {
             <p>{task.description}</p>
             {/* <p>{task.ddLine}</p> */}
             <p>{task.adress}</p>
-            <input type="checkbox" defaultChecked={task.done} /> {/* Create function that will change the status of checkbox to done in db */}
+            <EditCheckBox done={task.done} id={task._id.toString()}/>
             <Link href={`/edit-task/${task._id}`}>Edit Task</Link>
           </section>
         ))}
